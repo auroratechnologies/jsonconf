@@ -3,7 +3,7 @@ JsonConf [![GoDoc](https://godoc.org/github.com/auroratechnologies/jsonconf?stat
 
 ######JsonConf
 
-JsonConf implement a method of reading environment variables and defaulting to a configuration json file if the environment variable is not found.
+JsonConf implements a method of reading environment variables and defaulting to a configuration json file if the environment variable is not found.
 
 
 This helps setup a single configuration file that can be used in production, development and local environments, while all having different configurations if the appropriate environment variables are setup.
