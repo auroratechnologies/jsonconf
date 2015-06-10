@@ -21,10 +21,10 @@ import (
 func main() {
 	jsonconf.LoadConfig("conf.json")
 	redisaddr, err := jsonconf.GetVar("REDIS_ADDR"))
-  if (err != nil){
-    fmt.Println(err) // No key found
-  }
-  fmt.Println(redisaddr)
+	if (err != nil){
+		fmt.Println(err) // No key found
+	}
+	fmt.Println(redisaddr)
 }
 ```
 
