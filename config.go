@@ -27,8 +27,8 @@ func LoadConfig(filename string) {
 	var f interface{}
 	err := decoder.Decode(&f)
 	if err != nil {
-    log.Fatal(err)
-  }
+		log.Fatal(err)
+	}
 	Conf = f.(map[string]interface{})
 }
 
