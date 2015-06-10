@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"log"
 	"os"
 )
 
@@ -14,15 +13,16 @@ var Conf map[string]interface{}
 
 // LoadConfig will, given a filename, load a json file from the location. It will
 // then decode it and store it into the global Conf variable
-func LoadConfig(filename string) {
+func LoadConfig(filename string) error {
 	file, _ := os.Open(filename)
 	decoder := json.NewDecoder(file)
 	var f interface{}
 	err := decoder.Decode(&f)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	Conf = f.(map[string]interface{})
+	return nil
 }
 
 // GetVar will, given the name of a string, try to locate an environment variable that matches the string. If that match comes empty, then it will look in the configuration file for the string as a key. If that match comes up empty, then the call will return an error. Otherwise, it will return the string of the interface{} stored in Conf
