@@ -63,5 +63,30 @@ func TestDefaultValue(t *testing.T) {
 	if err == nil {
 		t.Error("Multiple defaults should have caused error")
 	}
+}
 
+func TestSetVal(t *testing.T) {
+	err := LoadConfig("config_test.json")
+	if err != nil {
+		t.Error("Should load the file given")
+	}
+
+	v, err := GetVar("FOO")
+	if err != nil {
+		t.Error("Should return the value of FOO")
+	}
+
+	if v != "Hi" {
+		t.Error("Wrong value retried for FOO")
+	}
+
+	SetVar("FOO", "BAR")
+	v, err = GetVar("FOO")
+	if err != nil {
+		t.Error("Should return the value of FOO")
+	}
+
+	if v != "BAR" {
+		t.Error("Wrong value retried for FOO")
+	}
 }

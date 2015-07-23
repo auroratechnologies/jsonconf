@@ -48,3 +48,10 @@ func GetVar(v string, defaultVal ...string) (string, error) {
 	}
 	return fmt.Sprintf("%v", result), nil
 }
+
+// SetVar sets the given key, provided as a string, to the given string value.
+// This is useful in overwriting values if need be, or adding values to the conf
+// so that they can be globally accessible.
+func SetVar(k string, v string) {
+	Conf[k] = v
+}
